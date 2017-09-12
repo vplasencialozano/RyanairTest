@@ -30,9 +30,10 @@ public class SelectFlyPage extends CommonPage{
         clickOnXPath(selectedContinueButtonPath);
     }
 
-    public SeatSelectionPage selectfliesAndContinue() {
+    public SeatSelectionPage selectfliesAndContinue() throws InterruptedException {
 
         selectFirstFly();
+        Thread.sleep(500);
         selectSeatFly();
         clickContinueButtonFly();
         return new SeatSelectionPage(getWebDriver());

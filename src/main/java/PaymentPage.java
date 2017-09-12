@@ -1,6 +1,11 @@
+import com.google.common.base.Verify;
 import org.openqa.selenium.WebDriver;
 
 public class PaymentPage extends CommonPage{
+
+    private static final String ERROR_MESSAGE = "Card number is invalid";
+
+    public static final String THE_ERROR_MESSAGE_IS_THE_EXPECTED = "The error message is the expected";
 
     public static String XPATH_TITLE_SELECTOR_1 = ".//*[@id='checkout']/div/form/div[1]/div[1]/div/div[2]/ng-form/passenger-input-group[1]/div/ng-form/div[1]/div[1]/div/select";
 
@@ -34,7 +39,11 @@ public class PaymentPage extends CommonPage{
 
     public static String XPATH_BILLING_CITY = ".//*[@id='checkout']/div/form/div[1]/div[2]/div[2]/div[4]/div/div[2]/div[2]/address-form/div[3]/div[1]/input";
 
-    public static String XPATH_ACCEPT_CONDITIONS = ".//*[@id='checkout']/div/form/div[1]/div[2]/div[2]/div[6]/div/input";
+    public static String XPATH_ACCEPT_CONDITIONS = ".//*[@id='checkout']/div/form/div[1]/div[2]/div[2]/div[6]/div";
+
+    public static String XPATH_ACCEPT_CONDITIONS_BUTTON = ".//*[@id='checkout']/div/form/div[1]/div[2]/div[2]/div[6]/button";
+
+    public static String XPATH_ERROR_MESSAGE= "//*[@id='checkout']/div/form/div[1]/div[2]/div[2]/div[4]/div/div[2]/div[1]/div/div/payment-method-retrieved-cards/payment-method-card/div[1]/ul/li/span";
 
 
     public PaymentPage(WebDriver webDriver){
@@ -67,6 +76,12 @@ public class PaymentPage extends CommonPage{
         writeOnXPath(XPATH_BILLING_ADDRESS,"Castellana 1");
         writeOnXPath(XPATH_BILLING_CITY,"Madrid");
         clickOnXPath(XPATH_ACCEPT_CONDITIONS);
+        clickOnXPath(XPATH_ACCEPT_CONDITIONS_BUTTON);
     }
 
+    public void checkErrorMessage() {
+
+        Verify.verify(getErrorMessage(XPATH_ERROR_MESSAGE).equalsIgnoreCase(ERROR_MESSAGE), THE_ERROR_MESSAGE_IS_THE_EXPECTED);
+
+    }
 }

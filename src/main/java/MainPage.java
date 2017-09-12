@@ -62,6 +62,8 @@ public class MainPage {
     @Then ("I should get payment declined message")
     public void checkResoults(){
         System.out.println("I should get payment declined message");
-        Verify.verify(true);
+        PaymentPage paymentPage = new PaymentPage(driver);
+        paymentPage.checkErrorMessage();
+
     }
 }

@@ -63,4 +63,9 @@ public class CommonPage {
 
         return webDriver.findElements(By.xpath(xpath)).isEmpty();
     }
+
+    public static String getErrorMessage(final String xpath){
+        waitForXpath(xpath);
+        return  webDriver.findElement(By.xpath(xpath)).getText();
+    }
 }
