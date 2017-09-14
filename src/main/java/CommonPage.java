@@ -3,6 +3,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+/**
+ * Class to share common Methods
+ */
 public class CommonPage {
 
     private static WebDriver webDriver;

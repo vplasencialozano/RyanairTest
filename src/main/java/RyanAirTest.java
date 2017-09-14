@@ -12,7 +12,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 
-public class StackScenarios extends JUnitStory {
+public class RyanAirTest extends JUnitStory {
 
 	@Override
 	public Configuration configuration() {
@@ -31,7 +31,7 @@ public class StackScenarios extends JUnitStory {
 
 	@Override
 	public List<CandidateSteps> candidateSteps() {
-		return new InstanceStepsFactory(configuration(), new MainPage())
+		return new InstanceStepsFactory(configuration(), new StepLibrary())
 				.createCandidateSteps();
 	}
 	
