@@ -10,11 +10,21 @@ public class SelectFlyPage extends CommonPage{
 
     private static String  selectedContinueButtonPath = "/html/body/div[2]/main/div[1]/section/div/div/div/button";
 
+    /**
+     * Instantiates a new Select fly page.
+     *
+     * @param webDriver the web driver
+     */
     public SelectFlyPage(WebDriver webDriver) {
 
             super(webDriver);
     }
 
+    /**
+     * Select first fly.
+     *
+     * @param date the date
+     */
     public void selectFirstFly(final String date){
 
 
@@ -23,14 +33,29 @@ public class SelectFlyPage extends CommonPage{
         clickOnXPath(selectedFlyPath);
 
     }
+
+    /**
+     * Select seat fly.
+     */
     public void selectSeatFly() {
         clickOnXPath(selectedSeatPath);
 
     }
+
+    /**
+     * Click continue button fly.
+     */
     public void clickContinueButtonFly()  {
         clickOnXPath(selectedContinueButtonPath);
     }
 
+    /**
+     * Selectflies and continue seat selection page.
+     *
+     * @param date the date
+     * @return the seat selection page
+     * @throws InterruptedException the interrupted exception
+     */
     public SeatSelectionPage selectfliesAndContinue(final String date) throws InterruptedException {
 
         selectFirstFly(date);

@@ -17,8 +17,14 @@ public class FunctionalTest {
     private StoryReporterBuilder Reporter = new StoryReporterBuilder();
 
 
+    /**
+     * The constant driver.
+     */
     protected static WebDriver driver;
 
+    /**
+     * Set up stories.
+     */
     @BeforeStories
     public static void setUpStories(){
 
@@ -26,6 +32,9 @@ public class FunctionalTest {
 
     }
 
+    /**
+     * Set up story.
+     */
     @BeforeScenario (uponType = ScenarioType.ANY)
     public static void setUpStory( ){
 
@@ -36,12 +45,18 @@ public class FunctionalTest {
 
     }
 
+    /**
+     * Clean up story.
+     */
     @AfterScenario (uponType = ScenarioType.ANY)
     public void cleanUpStory(){
         driver.manage().deleteAllCookies();
         driver.close();
     }
 
+    /**
+     * Clean up.
+     */
     @AfterStories
     public void cleanUp(){
         driver.quit();

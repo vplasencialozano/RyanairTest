@@ -21,15 +21,32 @@ public class SeatSelectionPage extends CommonPage{
 
     private static String XPATH_CHECKOUT_BUTTON = "//*[@id='booking-selection']/article/div[2]/section/div[2]/button";
 
+    /**
+     * Instantiates a new Seat selection page.
+     *
+     * @param webDriver the web driver
+     */
     public SeatSelectionPage(WebDriver webDriver) {
         super(webDriver);
     }
 
+    /**
+     * Close message child.
+     *
+     * @throws InterruptedException the interrupted exception
+     */
     public void closeMessageChild() throws InterruptedException {
 
         clickOnXPath(XPATH_OK_DIALOG);
     }
 
+    /**
+     * Select seat payment page.
+     * This method try to find seats only from 6 to 12 rows.
+     * It can be update to search in all seats candidate in the plane.
+     * @return the payment page
+     * @throws InterruptedException the interrupted exception
+     */
     public PaymentPage selectSeat() throws InterruptedException {
 
         Integer i = 6;

@@ -47,10 +47,20 @@ public class PaymentPage extends CommonPage{
     private static String XPATH_ERROR_MESSAGE= "//*[@id='checkout']/div/form/div[1]/div[2]/div[2]/div[4]/div/div[2]/div[1]/div/div/payment-method-retrieved-cards/payment-method-card/div[1]/ul/li/span";
 
 
+    /**
+     * Instantiates a new Payment page.
+     *
+     * @param webDriver the web driver
+     */
     public PaymentPage(WebDriver webDriver){
         super(webDriver);
     }
 
+    /**
+     * Fill personal data.
+     *
+     * @throws InterruptedException the interrupted exception
+     */
     public void fillPersonalData() throws InterruptedException {
 
         writeOnXPath(XPATH_TITLE_SELECTOR_1,"Mr");
@@ -66,6 +76,14 @@ public class PaymentPage extends CommonPage{
 
     }
 
+    /**
+     * Fill payment data.
+     *
+     * @param creditCard    the credit card
+     * @param dateCardMonth the date card month
+     * @param dateCardYear  the date card year
+     * @param cvsCard       the cvs card
+     */
     public void fillPaymentData(final String creditCard, final String dateCardMonth,final String dateCardYear, final String cvsCard){
         writeOnXPath(XPATH_CARD_NUMBER,creditCard.replaceAll(" ",""));
         writeOnXPath(XPATH_CARD_TYPE,"MasterCard");
@@ -80,14 +98,14 @@ public class PaymentPage extends CommonPage{
         clickOnXPath(XPATH_ACCEPT_CONDITIONS_BUTTON);
     }
 
+    /**
+     * Check error message.
+     *
+     * @param message the message
+     */
     public void checkErrorMessage(final String message) {
 
         Verify.verify(getErrorMessage(XPATH_ERROR_MESSAGE).equalsIgnoreCase(message), THE_ERROR_MESSAGE_IS_THE_EXPECTED);
 
-    }
-
-    public void loginOut() {
-        clickOnXPath("//*[@id='menu-container']/ul[2]/li/a/span");
-        clickOnXPath("//*[@id='menu-container']/ul[2]/li/div/ul/li[9]/a");
     }
 }

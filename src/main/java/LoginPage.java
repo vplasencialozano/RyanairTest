@@ -2,7 +2,7 @@
 import org.openqa.selenium.WebDriver;
 
 /**
- *   Page to login user
+ * Page to login user
  */
 public class LoginPage extends CommonPage{
 
@@ -18,11 +18,19 @@ public class LoginPage extends CommonPage{
 
     private static String LOGIN_BUTTON_CONFIRM_XPATH = "//*[@id='ngdialog1']/div[2]/signup-home-form/div/div/div[2]/div/dialog-body/div[2]/signup-home-tabs/div[2]/div/div/div/form/div[4]/button-spinner/button";
 
+    /**
+     * Instantiates a new Login page.
+     *
+     * @param driver the driver
+     */
     public LoginPage(final WebDriver driver ){
         super(driver);
 
     }
 
+    /**
+     * Login with user in the websites .
+     */
     public void loginUSer(){
 
         clickOnXPath(LOGIN_XPATH);
