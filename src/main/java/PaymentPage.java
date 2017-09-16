@@ -8,7 +8,7 @@ public class PaymentPage extends CommonPage{
 
     private static final String THE_ERROR_MESSAGE_IS_THE_EXPECTED = "The error message is the expected";
 
-    private static String XPATH_TITLE_SELECTOR_1 = ".//*[@id='checkout']/div/form/div[1]/div[1]/div/div[2]/ng-form/passenger-input-group[1]/div/ng-form/div[1]/div[1]/div/select";
+    private static String XPATH_TITLE_SELECTOR_1 = "//*[@id='checkout']/div/form/div[1]/div[1]/div/div[2]/ng-form/passenger-input-group[1]/div/ng-form/div[1]/div[1]/div/select";
 
     private static String XPATH_FIRST_NAME_1 = "//*[@id='checkout']/div/form/div[1]/div[1]/div/div[2]/ng-form/passenger-input-group[1]/div/ng-form/div[1]/div[2]/input";
 
@@ -16,7 +16,7 @@ public class PaymentPage extends CommonPage{
 
     private static String XPATH_TITLE_SELECTOR_2 = "//*[@id='checkout']/div/form/div[1]/div[1]/div/div[2]/ng-form/passenger-input-group[2]/div/ng-form/div[1]/div[1]/div/select";
 
-    private static String XPATH_FIRST_NAME_2 = ".//*[@id='checkout']/div/form/div[1]/div[1]/div/div[2]/ng-form/passenger-input-group[2]/div/ng-form/div[1]/div[2]/input";
+    private static String XPATH_FIRST_NAME_2 = "//*[@id='checkout']/div/form/div[1]/div[1]/div/div[2]/ng-form/passenger-input-group[2]/div/ng-form/div[1]/div[2]/input";
 
     private static String XPATH_SURNAME_2= "//*[@id='checkout']/div/form/div[1]/div[1]/div/div[2]/ng-form/passenger-input-group[2]/div/ng-form/div[1]/div[3]/input";
 
@@ -30,19 +30,19 @@ public class PaymentPage extends CommonPage{
 
     private static String XPATH_EXPIRE_MONTH= "//*[@id='checkout']/div/form/div[1]/div[2]/div[2]/div[4]/div/div[2]/div[1]/div/div/payment-method-retrieved-cards/payment-method-card/div[3]/div[1]/div[1]/div/select";
 
-    private static String XPATH_YEAR= ".//*[@id='checkout']/div/form/div[1]/div[2]/div[2]/div[4]/div/div[2]/div[1]/div/div/payment-method-retrieved-cards/payment-method-card/div[3]/div[1]/div[2]/div/div/select";
+    private static String XPATH_YEAR= "//*[@id='checkout']/div/form/div[1]/div[2]/div[2]/div[4]/div/div[2]/div[1]/div/div/payment-method-retrieved-cards/payment-method-card/div[3]/div[1]/div[2]/div/div/select";
 
-    private static String XPATH_SECURITY_CODE= ".//*[@id='checkout']/div/form/div[1]/div[2]/div[2]/div[4]/div/div[2]/div[1]/div/div/payment-method-retrieved-cards/payment-method-card/div[3]/div[2]/div[2]/input";
+    private static String XPATH_SECURITY_CODE= "//*[@id='checkout']/div/form/div[1]/div[2]/div[2]/div[4]/div/div[2]/div[1]/div/div/payment-method-retrieved-cards/payment-method-card/div[3]/div[2]/div[2]/input";
 
-    private static String XPATH_CARD_HOLDER= ".//*[@id='checkout']/div/form/div[1]/div[2]/div[2]/div[4]/div/div[2]/div[1]/div/div/payment-method-retrieved-cards/payment-method-card/div[4]/div[1]/input";
+    private static String XPATH_CARD_HOLDER= "//*[@id='checkout']/div/form/div[1]/div[2]/div[2]/div[4]/div/div[2]/div[1]/div/div/payment-method-retrieved-cards/payment-method-card/div[4]/div[1]/input";
 
-    private static String XPATH_BILLING_ADDRESS = ".//*[@id='checkout']/div/form/div[1]/div[2]/div[2]/div[4]/div/div[2]/div[2]/address-form/div[1]/input";
+    private static String XPATH_BILLING_ADDRESS = "//*[@id='checkout']/div/form/div[1]/div[2]/div[2]/div[4]/div/div[2]/div[2]/address-form/div[1]/input";
 
-    private static String XPATH_BILLING_CITY = ".//*[@id='checkout']/div/form/div[1]/div[2]/div[2]/div[4]/div/div[2]/div[2]/address-form/div[3]/div[1]/input";
+    private static String XPATH_BILLING_CITY = "//*[@id='checkout']/div/form/div[1]/div[2]/div[2]/div[4]/div/div[2]/div[2]/address-form/div[3]/div[1]/input";
 
-    private static String XPATH_ACCEPT_CONDITIONS = ".//*[@id='checkout']/div/form/div[1]/div[2]/div[2]/div[6]/div";
+    private static String XPATH_ACCEPT_CONDITIONS = "//*[@id='checkout']/div/form/div[1]/div[2]/div[2]/div[6]/div";
 
-    private static String XPATH_ACCEPT_CONDITIONS_BUTTON = ".//*[@id='checkout']/div/form/div[1]/div[2]/div[2]/div[6]/button";
+    private static String XPATH_ACCEPT_CONDITIONS_BUTTON = "//*[@id='checkout']/div/form/div[1]/div[2]/div[2]/div[6]/button";
 
     private static String XPATH_ERROR_MESSAGE= "//*[@id='checkout']/div/form/div[1]/div[2]/div[2]/div[4]/div/div[2]/div[1]/div/div/payment-method-retrieved-cards/payment-method-card/div[1]/ul/li/span";
 
@@ -84,5 +84,10 @@ public class PaymentPage extends CommonPage{
 
         Verify.verify(getErrorMessage(XPATH_ERROR_MESSAGE).equalsIgnoreCase(message), THE_ERROR_MESSAGE_IS_THE_EXPECTED);
 
+    }
+
+    public void loginOut() {
+        clickOnXPath("//*[@id='menu-container']/ul[2]/li/a/span");
+        clickOnXPath("//*[@id='menu-container']/ul[2]/li/div/ul/li[9]/a");
     }
 }

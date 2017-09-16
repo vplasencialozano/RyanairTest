@@ -6,18 +6,20 @@ import org.openqa.selenium.WebDriver;
 public class SelectFlyPage extends CommonPage{
 
 
-    public static final  String selectedFlyPath = ".//*[@id='flight-FR~8558~ ~~DUB~12/23/2017 14:20~SXF~12/23/2017 17:40~']/div/div[2]/flights-table-price/div/div";
+    private static String  selectedSeatPath = "//*[@id='continue']";
 
-    public static final  String selectedSeatPath = ".//*[@id='continue']";
-
-    public static final  String selectedContinueButtonPath = "/html/body/div[2]/main/div[1]/section/div/div/div/button";
+    private static String  selectedContinueButtonPath = "/html/body/div[2]/main/div[1]/section/div/div/div/button";
 
     public SelectFlyPage(WebDriver webDriver) {
 
             super(webDriver);
     }
 
-    public void selectFirstFly(){
+    public void selectFirstFly(final String date){
+
+
+        final String selectedFlyPath = "//*[@id='flight-FR~8558~ ~~DUB~" + date + " 14:20~SXF~" + date + " 17:40~']/div/div[2]/flights-table-price/div/div" ;
+
         clickOnXPath(selectedFlyPath);
 
     }
@@ -29,9 +31,9 @@ public class SelectFlyPage extends CommonPage{
         clickOnXPath(selectedContinueButtonPath);
     }
 
-    public SeatSelectionPage selectfliesAndContinue() throws InterruptedException {
+    public SeatSelectionPage selectfliesAndContinue(final String date) throws InterruptedException {
 
-        selectFirstFly();
+        selectFirstFly(date);
         Thread.sleep(500);
         selectSeatFly();
         clickContinueButtonFly();

@@ -1,9 +1,12 @@
+import org.jbehave.core.Embeddable;
 import org.jbehave.core.configuration.Configuration;
 import org.jbehave.core.configuration.MostUsefulConfiguration;
+import org.jbehave.core.io.CodeLocations;
 import org.jbehave.core.io.LoadFromRelativeFile;
 import org.jbehave.core.junit.JUnitStory;
+import org.jbehave.core.reporters.CrossReference;
+import org.jbehave.core.reporters.FilePrintStreamFactory;
 import org.jbehave.core.reporters.StoryReporterBuilder;
-import org.jbehave.core.reporters.StoryReporterBuilder.Format;
 import org.jbehave.core.steps.CandidateSteps;
 import org.jbehave.core.steps.InstanceStepsFactory;
 import org.junit.Test;
@@ -11,11 +14,22 @@ import org.junit.Test;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
+import java.util.Properties;
+
+import static org.jbehave.core.reporters.StoryReporterBuilder.Format.*;
 
 public class RyanAirTest extends JUnitStory {
 
+	private final CrossReference xref = new CrossReference();
+
 	@Override
 	public Configuration configuration() {
+
+		Class<? extends Embeddable> embeddableClass = this.getClass();
+
+		Properties viewResources = new Properties();
+		viewResources.put("decorateNonHtml", "true");
+
 		URL storyURL = null;
 		try {
 			// This requires you to start Maven from the project directory
@@ -25,8 +39,12 @@ public class RyanAirTest extends JUnitStory {
 			e.printStackTrace();
 		}
 		return new MostUsefulConfiguration().useStoryLoader(
-				new LoadFromRelativeFile(storyURL)).useStoryReporterBuilder(
-				new StoryReporterBuilder().withFormats(Format.HTML));
+				new LoadFromRelativeFile(storyURL))
+				.useStoryReporterBuilder(new StoryReporterBuilder()
+						.withCodeLocation(CodeLocations.codeLocationFromClass(embeddableClass))
+						.withDefaultFormats().withPathResolver(new FilePrintStreamFactory.ResolveToPackagedName())
+						.withViewResources(viewResources).withFormats(CONSOLE, TXT, HTML, XML)
+						.withFailureTrace(true).withFailureTraceCompression(true).withCrossReference(xref));
 	}
 
 	@Override
