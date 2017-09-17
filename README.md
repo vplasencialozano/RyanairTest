@@ -3,9 +3,9 @@
 This project consist on how to test a scenario on Ryanair website.
 The scenario is the following:
 
-Given I make a booking from “DUB” to “SXF” on 12/23/2017 for 2 adults and 1 child
-When I pay for booking with card details “5555 5555 5555 5557”, “10/18” and “265”
-Then I should get payment declined message
+ Given I make a booking from “DUB” to “SXF” on 12/23/2017 for 2 adults and 1 child
+ When I pay for booking with card details “5555 5555 5555 5557”, “10/18” and “265”
+ Then I should get payment declined message
 
 ## Getting Started
 
@@ -42,7 +42,7 @@ You need to make sure that:
 * JAVA\_HOME and M2\_HOME are set accordingly
 
 
-### Installing
+## Installing
 
 * Selenium server:
 
@@ -65,7 +65,7 @@ To compile the project you should write in a console or from de IDE:
 "mvn clean install"
 
 
-###Running all the stories in IDE 
+## Running all the stories in IDE
 
 * Right-click on the RyanairTest class and select "Run 'RyanairTest'
 
@@ -84,7 +84,7 @@ C:/Users/YOUUSER/IdeaProjects/WebRyanair/target/jbehave/view/reports.html
 
 Inside you can find the information about the test and you can click on the html link for more details, for example on ryan_air_test.html
  
-### And coding style tests
+## And coding style tests
 
 I have used two different dates to run two scenarios
 
@@ -92,9 +92,9 @@ Feature: Test Ryanair Page
 
 Scenario Outline: I want to test the error message when credit card number is wrong
 
-Given I make a booking from <from> to <to> on <date> for <numAdult> adults and <numChild> child
-When I pay for booking with card details <cardNumber> month <month> year <year> cvs <cvs>
-Then I should get payment declined message <message>
+ Given I make a booking from <from> to <to> on <date> for <numAdult> adults and <numChild> child
+ When I pay for booking with card details <cardNumber> month <month> year <year> cvs <cvs>
+ Then I should get payment declined message <message>
 
 
 Examples:
