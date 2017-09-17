@@ -1,20 +1,25 @@
 # Ryanair test:
 
-This project consist on an example to know how to test a feature on Ryanair websites.
+This project consist on an example of test one scenario on Ryanair websites.
+The scenario is the following:
+
+Given I make a booking from “DUB” to “SXF” on 12/23/2017 for 2 adults and 1 child
+When I pay for booking with card details “5555 5555 5555 5557”, “10/18” and “265”
+Then I should get payment declined message
 
 ## Getting Started
 
-Clone the project and open it on Intellij  as Maven proyect.
-
+Clone the project and open it on Intellij as Maven project.
+https://github.com/vplasencialozano/RyanairTest
 
 ### Prerequisites
 
--Intellij or similar
--Maven 2+
--JDK 6+
--Chrome Browser
--Chrome Driver (https://sites.google.com/a/chromium.org/chromedriver/)
--Selenium Server (http://www.seleniumhq.org/download/)
+*Intellij or similar
+*Maven 2+
+*JDK 6+
+*Chrome Browser
+*Chrome Driver (https://sites.google.com/a/chromium.org/chromedriver/)
+*Selenium Server (http://www.seleniumhq.org/download/)
 
 ## Windows configuration
 
@@ -43,8 +48,8 @@ You need to make sure that:
 
 Create a folder and add inside the files:
 
--selenium-server-standalone-3.5.3.jar
--chromedriver.exe
+*selenium-server-standalone-3.5.3.jar
+*chromedriver.exe
 
 For Windows you can create a Seleniumserver.bat file to be simple to run the server. The file should containt:
 "java -jar selenium-server-standalone-3.5.3.jar"
@@ -79,7 +84,7 @@ Inside you can find the information about the test and you can click on the html
  
 ### And coding style tests
 
-I have used to differents dates to run two scenarios
+I have used to different dates to run two scenarios
 
 Feature: Test Ryanair Page
 
@@ -102,7 +107,7 @@ Examples:
 
 ## Final notes:
 
-- I have used "Thread.sleep" because I have some problems waiting for loading some components
-- This proyect was develpoment on Windows and for Chrome, but should be fine to run on Mac
+* I have used "Thread.sleep" because I have some problems waiting for loading some components
+* This project was development on Windows and for Chrome, but should be fine to run on Mac
 
 
