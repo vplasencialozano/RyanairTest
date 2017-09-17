@@ -18,7 +18,7 @@ import java.util.Properties;
 
 import static org.jbehave.core.reporters.StoryReporterBuilder.Format.*;
 
-public class RyanAirTest extends JUnitStory {
+public class RyanairTest extends JUnitStory {
 
 	private final CrossReference xref = new CrossReference();
 
