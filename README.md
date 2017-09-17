@@ -3,9 +3,9 @@
 This project consist on how to test a scenario on Ryanair website.
 The scenario is the following:
 
- Given I make a booking from “DUB” to “SXF” on 12/23/2017 for 2 adults and 1 child
- When I pay for booking with card details “5555 5555 5555 5557”, “10/18” and “265”
- Then I should get payment declined message
+ Given I make a booking from “DUB” to “SXF” on 12/23/2017 for 2 adults and 1 child <br />
+ When I pay for booking with card details “5555 5555 5555 5557”, “10/18” and “265” <br />
+ Then I should get payment declined message <br />
 
 ## Getting Started
 
@@ -92,15 +92,15 @@ Feature: Test Ryanair Page
 
 Scenario Outline: I want to test the error message when credit card number is wrong
 
- Given I make a booking from <from> to <to> on <date> for <numAdult> adults and <numChild> child
- When I pay for booking with card details <cardNumber> month <month> year <year> cvs <cvs>
- Then I should get payment declined message <message>
+ Given I make a booking from <from> to <to> on <date> for <numAdult> adults and <numChild> child <br />
+ When I pay for booking with card details <cardNumber> month <month> year <year> cvs <cvs> <br />
+ Then I should get payment declined message <message> <br />
 
 
 Examples:
-| from | to  | date       | numAdult | numChild | cardNumber          | month | year | cvs | message                |
-| DUB  | SXF | 12/23/2017 | 2        | 1        | 5555 5555 5555 5554 | 10    | 2018 | 265 | Card number is invalid |
-| DUB  | SXF | 01/16/2018 | 2        | 1        | 5555 5555 5555 5556 | 10    | 2018 | 265 | Card number is invalid |
+| from | to  | date       | numAdult | numChild | cardNumber          | month | year | cvs | message                | <br />
+| DUB  | SXF | 12/23/2017 | 2        | 1        | 5555 5555 5555 5554 | 10    | 2018 | 265 | Card number is invalid | <br />
+| DUB  | SXF | 01/16/2018 | 2        | 1        | 5555 5555 5555 5556 | 10    | 2018 | 265 | Card number is invalid | <br />
 
 
 ## Authors
